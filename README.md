@@ -1,13 +1,17 @@
 # Fair Billing
 
 ## Description
-A Python application to calculate fair billing based on session logs.
+A Python application to calculate fair billing based on session logs with unit tests, availble to run from docker and python directly. 
 
 ## Setup
 
 ### Prerequisites
 - Docker installed on your machine (for Docker run)
 - Python installed on your machine (for direct run)
+
+### External dependencies
+- No external dependencies is needed.
+- The empty file requirements.txt is created just for the project to be aware of Python’s package management practices and to help point out that there are no extrnal dependcies used here.
 
 ## Running with Docker
 ### Steps
@@ -95,14 +99,6 @@ CHARLIE 3 37
 - Ensure Python 3 is installed on your machine to run the application directly.
 - The application reads a log file and calculates the total session time for each user.
 - Invalid or irrelevant data in the log file is silently ignored.
-
-
-
-
-
-
-
-
 
 
 
