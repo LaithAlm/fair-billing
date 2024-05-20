@@ -80,7 +80,7 @@ CHARLIE 3 37
 ### Steps
 
 
-1. ***Clone the repository:**
+1. **Clone the repository:**
 
 ```sh
 git clone https://github.com/yourusername/fair-billing.git
