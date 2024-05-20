@@ -1,0 +1,2 @@
+# No external dependencies currently required
+# It's common Practice to have this file, which indicates that the project is aware of Python’s package management practices, even if there are no external dependencies.
