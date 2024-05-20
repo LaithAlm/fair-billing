@@ -102,6 +102,7 @@ python3 src/fair_billing.py logs/sample_log.txt
 The output should be:
 
 ALICE99 4 240
+
 CHARLIE 3 37
 
 ## Notes
