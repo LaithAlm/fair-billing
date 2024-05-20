@@ -35,7 +35,7 @@ mkdir -p logs
 touch logs/sample_log.txt
 ```
 Add the following content to logs/sample_log.txt:
-
+```sh
 14:02:03 ALICE99 Start
 14:02:05 CHARLIE End
 14:02:34 ALICE99 End
@@ -47,6 +47,7 @@ Add the following content to logs/sample_log.txt:
 14:04:05 ALICE99 End
 14:04:23 ALICE99 End
 14:04:41 CHARLIE Start
+```
 
 5. **Run Application:**
 ```sh
@@ -57,11 +58,12 @@ The output should be:
 ALICE99 4 240
 CHARLIE 3 37
 
-### Running Directly with Python
+
+## Running Directly with Python
 ### Steps
 
 
-1. ***Clone the repository:**
+1. **Clone the repository:**
 
 ```sh
 git clone https://github.com/yourusername/fair-billing.git
@@ -73,17 +75,20 @@ cd fair-billing
 ```sh
 python src/fair_billing.py logs/sample_log.txt
 ```
-You may wish to have the log file containing session logs as a different name or different place so amend it if you wish.
+You may wish to have the log file containing session logs as a different name or different place so amend it if you wish and then change the file path in the command.
 
 - If you have Python 3 installed:
 ```sh
 python3 src/fair_billing.py logs/sample_log.txt
 ```
-- Check Output:
+
+
 The output should be:
 
+```sh
 ALICE99 4 240
 CHARLIE 3 37
+```
 
 ## Notes
 - Ensure Docker is installed on your machine to build and run the Docker image.
