@@ -76,7 +76,7 @@ ALICE99 4 240
 CHARLIE 3 37
 
 
-### Running Directly with Python
+## Running Directly with Python
 ### Steps
 
 
@@ -98,7 +98,7 @@ You may wish to have the log file containing session logs as a different name or
 ```sh
 python3 src/fair_billing.py logs/sample_log.txt
 ```
-- Check Output:
+## Check Output:
 The output should be:
 
 ALICE99 4 240
@@ -107,9 +107,14 @@ CHARLIE 3 37
 
 ## Notes
 - Ensure Docker is installed on your machine to build and run the Docker image.
-- Ensure Python 3 is installed on your machine to run the application directly.
+- Ensure Python 3 or 2 is installed on your machine to run the application directly.
 - The application reads a log file and calculates the total session time for each user.
 - Invalid or irrelevant data in the log file is silently ignored.
+
+## Troubleshooting
+### Common Issues
+- Docker Build Issues: Ensure Docker is installed and running on your machine.
+- Python Version Issues: Ensure Python 3 or 2 is installed and added to your PATH.
 
 
 
