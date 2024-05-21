@@ -20,19 +20,20 @@ def parse_log_line(line):
 
 def calculate_billing(file_path):
     """
-    Calculate the billing based on the session log.
+    Reads the log file and calculates the total session time and the number of sessions for each user.
 
     Args:
-    file_path (str): Path to the log file.
+    file_path (str): The path to the log file.
 
     Returns:
-    dict: A dictionary with usernames as keys and session details as values.
+    dict: A dictionary where the keys are usernames and the values are dictionaries containing the total
+          session time ('total_time') and the number of sessions ('sessions').
     """
     sessions = {}
     earliest_time = None
     latest_time = None
 
-    # Read and parse the log file
+    # Read and parse each line in the log file
     with open(file_path, 'r') as file:
         lines = file.readlines()
 
@@ -40,6 +41,7 @@ def calculate_billing(file_path):
         parsed = parse_log_line(line)
         if parsed:
             time, username, action = parsed
+            # Update the earliest and latest times encountered in the log
             if earliest_time is None or time < earliest_time:
                 earliest_time = time
             if latest_time is None or time > latest_time:
@@ -64,11 +66,11 @@ def calculate_billing(file_path):
                     total_time += int((time - start_time).total_seconds())
                     session_count += 1
                 else:
-                    # If there is no matching start, assume the earliest time
+                    # If there's an End without a matching Start, assume it started at the earliest log time
                     total_time += int((time - earliest_time).total_seconds())
                     session_count += 1
 
-        # Handle unmatched Start by assuming they end at the latest time
+        # Handle any unmatched Start entries by assuming they end at the latest log time
         for start_time in open_sessions:
             total_time += int((latest_time - start_time).total_seconds())
             session_count += 1
@@ -79,10 +81,11 @@ def calculate_billing(file_path):
 
 def print_results(results):
     """
-    Print the results in the required format.
+    Prints the billing results for each user.
 
     Args:
-    results (dict): A dictionary with usernames as keys and session details as values.
+    results (dict): A dictionary where the keys are usernames and the values are dictionaries containing the total
+                    session time ('total_time') and the number of sessions ('sessions').
     """
     for username, data in results.items():
         print(f"{username} {data['sessions']} {data['total_time']}")
